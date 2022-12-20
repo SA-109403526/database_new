@@ -1,0 +1,195 @@
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: mydb
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `tbl_administrator`
+--
+
+DROP TABLE IF EXISTS `tbl_administrator`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_administrator` (
+  `id_administrator` int NOT NULL AUTO_INCREMENT,
+  `account` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_administrator`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_administrator`
+--
+
+LOCK TABLES `tbl_administrator` WRITE;
+/*!40000 ALTER TABLE `tbl_administrator` DISABLE KEYS */;
+INSERT INTO `tbl_administrator` VALUES (1,'et.commodo.at@gmail.com','ridiculusmus'),(2,'sit@gmail.com','acttouf'),(3,'nunc@gmail.com','auctorodio'),(4,'elit.sed@gmail.com','mauris125'),(5,'quisque.fringilla.euismod@gmail.com','incondimentumdonec');
+/*!40000 ALTER TABLE `tbl_administrator` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_attraction`
+--
+
+DROP TABLE IF EXISTS `tbl_attraction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_attraction` (
+  `id_attraction` int NOT NULL AUTO_INCREMENT,
+  `id_city_a` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `detail` varchar(2000) NOT NULL,
+  `picture` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`id_attraction`),
+  KEY `id_city_idx_attraction` (`id_city_a`),
+  CONSTRAINT `id_city_attraction` FOREIGN KEY (`id_city_a`) REFERENCES `tbl_city` (`id_city`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_attraction`
+--
+
+LOCK TABLES `tbl_attraction` WRITE;
+/*!40000 ALTER TABLE `tbl_attraction` DISABLE KEYS */;
+INSERT INTO `tbl_attraction` VALUES (1,1,'101','台北有名的地理建築','https://th.bing.com/th/id/OIP.H0A9ErWN9E88NdPTe1ou8wHaE7?w=282&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(2,1,'小巨蛋','台北有名的地理建築','https://th.bing.com/th/id/R.78643def35fe6ee84d945cb8cd38e142?rik=pI6TjPLGtqOo%2bw&riu=http%3a%2f%2ffarm1.static.flickr.com%2f175%2f389910168_af2ee9a9f2_o.jpg&ehk=h3fg2etK27g5wLdVCcQsbn0Py%2fJ5VW7uTx7LPG4Pbmc%3d&risl=1&pid=ImgRaw&r=0'),(3,1,'艋舺龍山寺','台北有名的歷史建築','https://th.bing.com/th/id/OIP.o9Ehmrxyk9bFZDgRYTdR5QHaE8?w=267&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(4,2,'85大樓','高雄有名的地理建築','https://th.bing.com/th/id/OIP.cJGcNNuGC2U6uUrrvN8z7AHaE7?w=270&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(5,2,'駁二特區','高雄有名的文藝景點','https://img.onl/kFvOEv'),(6,2,'愛河','高雄有名的觀光景點','https://th.bing.com/th/id/R.dbfda32cfbfa79de10a02b62ff70a428?rik=5NMxXCteCkwUEA&riu=http%3a%2f%2fwww.easytravel.com.tw%2fupload%2fAttachments%2fA34339.jpg&ehk=u8FQmGlIurnI1Xj%2bErBYtH%2fe4w33IWJmtAKsRSWTJP0%3d&risl=&pid=ImgRaw&r=0'),(7,3,'鵝鑾鼻燈塔','屏東有名的地理建築','https://th.bing.com/th/id/OIP.L2Vs2abUUB8Ya2-bSkOlhgHaE7?w=260&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(8,3,'墾丁大街','屏東有名的觀光景點','https://img.onl/7vWwql'),(9,3,'國立海洋生物博物館','屏東有名的觀光景點','https://img.onl/bQc7OE'),(10,4,'台中歌劇院','台中有名的文藝景點','https://img.onl/Zw78VZ'),(11,4,'高美濕地','台中有名的觀光景點','https://th.bing.com/th/id/OIP.l5H4CcH_hi9VlLgeZiwuvQHaE8?w=250&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(12,4,'台中三井outlet','台中有名的百貨商城','https://th.bing.com/th/id/OIP.QUsHHuqe8MOU6jWzVS2EEQHaE7?w=265&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(13,5,'藍田書院','南投有名的歷史建築','https://img.onl/XLX8gX'),(14,5,'茶二指','南投有名的文藝景點','https://th.bing.com/th/id/OIP.oP3VEfIaPzfeRH6SigDPXQHaE9?w=242&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'),(15,5,'受天宮','南投有名的歷史建築','https://th.bing.com/th/id/OIP.yKIQ-wmtHZYfJCRuy7u_KAHaFj?w=227&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+/*!40000 ALTER TABLE `tbl_attraction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_city`
+--
+
+DROP TABLE IF EXISTS `tbl_city`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_city` (
+  `id_city` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_city`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_city`
+--
+
+LOCK TABLES `tbl_city` WRITE;
+/*!40000 ALTER TABLE `tbl_city` DISABLE KEYS */;
+INSERT INTO `tbl_city` VALUES (1,'Taipei'),(2,'Kaohsiung'),(3,'Pingtung'),(4,'Taichung'),(5,'Nantou');
+/*!40000 ALTER TABLE `tbl_city` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_member`
+--
+
+DROP TABLE IF EXISTS `tbl_member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_member` (
+  `id_member` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `gmail` varchar(45) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_member`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_member`
+--
+
+LOCK TABLES `tbl_member` WRITE;
+/*!40000 ALTER TABLE `tbl_member` DISABLE KEYS */;
+INSERT INTO `tbl_member` VALUES (1,'Morris','morriskuo0314@gmail.com','2022-12-04 00:00:00','sitamet'),(2,'Roger','eric07241527@gmail.com','2022-12-04 00:00:00','mollis'),(3,'Josh','joshua.hsieh041@gmail.com','2022-12-04 00:00:00','gravidanon'),(4,'Octavius','nulla.semper.tellus@gmail.com','2022-01-05 00:00:00','elita'),(5,'Imani','proin.non@gmail.com','2022-01-25 00:00:00','uttincidunt'),(6,'Quinn','nam@gmail.com','2022-04-06 00:00:00','quisquetincidunt'),(7,'Hadassah','tincidunt.nibh.phasellus@gmaill.com','2023-12-03 00:00:00','aliquelobortis'),(8,'Carly','convallis.erat@gmail.com','2023-04-03 00:00:00','metusinlorem'),(9,'Sacha','consequat.enim@gmail.com','2023-01-20 00:00:00','urna'),(10,'Bell','sapien.gravida@gmail.com','2023-11-24 00:00:00','metusaliquam'),(11,'Yuri','aliquet.lobortis@gmail.com','2022-02-13 00:00:00','mloremvehicula'),(12,'Rae','pellentesque.eget@gmail.com','2022-04-12 00:00:00','massa'),(13,'Amanda','orci.consectetuer@gmail.com','2022-01-07 00:00:00','adipiscingelitetiam'),(14,'Ainsley','dui@gmail.com','2022-08-07 00:00:00','lectusnullamsuscipit'),(15,'Harding','ultricies.ornare@gmail.com','2021-12-12 00:00:00','donecfeugiatmetus'),(16,'Idola','egestas.blandit@gmail.com','2023-04-13 00:00:00','arcuvestibulum'),(17,'Paul','tincidunt@gmail.com','2022-07-09 00:00:00','interdumenim'),(18,'Quintessa','mauris.integer@gmail.com','2023-05-24 00:00:00','velitaliquanisl'),(19,'Amelia','commodo@gmail.com','2023-02-03 00:00:00','dictumauguemalesuada'),(20,'Arthur','dignissim@gmail.com','2023-09-30 00:00:00','iaculisaliquet'),(21,'Hayes','magnis@gmail.com','2023-08-03 00:00:00','necorci'),(22,'Quemby','auctor.velit.eget@gmail.com','2022-10-15 00:00:00','acfermentum'),(23,'Quamar','mattis.integer.eu@gmail.com','2023-02-19 00:00:00','habitant'),(24,'Arden','orci@gmail.com','2023-10-03 00:00:00','tellususpendissesed'),(25,'Ferris','a.feugiat@gmail.com','2023-10-26 00:00:00','loerjeo');
+/*!40000 ALTER TABLE `tbl_member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_project`
+--
+
+DROP TABLE IF EXISTS `tbl_project`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_project` (
+  `id_project` int NOT NULL AUTO_INCREMENT,
+  `id_member_project` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `modify_time` datetime DEFAULT NULL,
+  `statrt_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `id_city_project` int NOT NULL,
+  PRIMARY KEY (`id_project`),
+  KEY `id_member_idx_project` (`id_member_project`),
+  KEY `id_city_project_idx` (`id_city_project`),
+  CONSTRAINT `id_city_project` FOREIGN KEY (`id_city_project`) REFERENCES `tbl_city` (`id_city`),
+  CONSTRAINT `id_member_project` FOREIGN KEY (`id_member_project`) REFERENCES `tbl_member` (`id_member`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_project`
+--
+
+LOCK TABLES `tbl_project` WRITE;
+/*!40000 ALTER TABLE `tbl_project` DISABLE KEYS */;
+INSERT INTO `tbl_project` VALUES (1,1,'高雄一日遊','2022-12-08 00:00:00','2022-12-08 00:00:00','2022-12-31 00:00:00','2022-12-31 00:00:00',2),(2,2,'南投兩日遊','2023-01-01 00:00:00','2023-01-01 00:00:00','2023-01-02 00:00:00','2023-01-04 00:00:00',5);
+/*!40000 ALTER TABLE `tbl_project` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_project_attraction`
+--
+
+DROP TABLE IF EXISTS `tbl_project_attraction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_project_attraction` (
+  `id_project_pa` int NOT NULL,
+  `id_attraction_pa` int NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  KEY `fk_tbl_project_has_tbl_attraction_tbl_attraction1_idx` (`id_attraction_pa`),
+  KEY `fk_tbl_project_has_tbl_attraction_tbl_project1_idx` (`id_project_pa`),
+  CONSTRAINT `fk_tbl_project_has_tbl_attraction_tbl_attraction1` FOREIGN KEY (`id_attraction_pa`) REFERENCES `tbl_attraction` (`id_attraction`),
+  CONSTRAINT `fk_tbl_project_has_tbl_attraction_tbl_project1` FOREIGN KEY (`id_project_pa`) REFERENCES `tbl_project` (`id_project`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_project_attraction`
+--
+
+LOCK TABLES `tbl_project_attraction` WRITE;
+/*!40000 ALTER TABLE `tbl_project_attraction` DISABLE KEYS */;
+INSERT INTO `tbl_project_attraction` VALUES (1,1,'2022-12-31 00:00:00','2022-12-31 00:00:00'),(2,2,'2023-01-02 00:00:00','2023-01-04 00:00:00');
+/*!40000 ALTER TABLE `tbl_project_attraction` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-12-21  0:59:32
